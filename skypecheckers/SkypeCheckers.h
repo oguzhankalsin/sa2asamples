@@ -6,8 +6,6 @@
 #include <queue>
 #import "Skype4COM.dll" named_guids rename("CreateEvent","CreatePluginEvent"), rename("SendMessage","SendChatMessage")
 
-//test
-
 //¦Vistaã‚Å‚ÍSkype‚ğŠÇ—ÒŒ ŒÀ‚Å‹N“®‚·‚é‚±‚ÆII
 
 static char g_appname[] = "skypecheckers1.0beta1";
