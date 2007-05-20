@@ -9,6 +9,7 @@ SkypeCheckers::SkypeCheckers(void)
 	//Skypeオブジェクトの作成
 	pSkype = ISkypePtr(__uuidof(Skype));
 	//IApplicationPtr pApp = IApplicationPtr("ec163200-44eb-483b-907f-a8c1cf56b8ee");//退避
+	pApp = 
 	pApp = IApplicationPtr(__uuidof(Application));
 	pStream = IApplicationStreamPtr(__uuidof(ApplicationStream));
 	//Checkersゲームの作成
