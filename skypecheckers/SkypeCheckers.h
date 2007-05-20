@@ -4,6 +4,7 @@
 #include "checkers.h"
 #include <process.h>
 #include <queue>
+#include <comdef.h>
 #import "Skype4COM.dll" named_guids rename("CreateEvent","CreatePluginEvent"), rename("SendMessage","SendChatMessage")
 
 //¦Vistaã‚Å‚ÍSkype‚ğŠÇ—ÒŒ ŒÀ‚Å‹N“®‚·‚é‚±‚ÆII
