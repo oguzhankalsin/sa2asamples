@@ -298,6 +298,10 @@
 			RelativePath=".\ReadMe.txt"
 			>
 		</File>
+		<File
+			RelativePath=".\Skype4COM.dll"
+			>
+		</File>
 	</Files>
 	<Globals>
 		<Global
