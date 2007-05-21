@@ -8,16 +8,21 @@ SkypeCheckers::SkypeCheckers(void)
 {
 	//Skypeオブジェクトの作成
 	pSkype = ISkypePtr(__uuidof(Skype));
-	//IApplicationPtr pApp = IApplicationPtr("ec163200-44eb-483b-907f-a8c1cf56b8ee");//退避
 	pApp = IApplicationPtr(__uuidof(Application));
 	pStream = IApplicationStreamPtr(__uuidof(ApplicationStream));
+	pApp->Create();
+	pApp->
+	pStream->connect();
+
 	//Checkersゲームの作成
 	pGame = new Checkers;
 	hThread = NULL;
 	hExect = NULL;
+
 	//クリティカルセクションを設ける(SkypeCheckersThreadとの排他制御用)
 	pCritSec = new CRITICAL_SECTION;
 	InitializeCriticalSection(pCritSec);
+
 	running = false;
 	attaching = false;
 	connecting = false;
@@ -29,6 +34,8 @@ SkypeCheckers::~SkypeCheckers(void)
 	StopSkypeCheckersThread();
 	WaitForSingleObject(hThread, INFINITE);
 	pSkype = NULL;
+	pApp->Delete();
+	pStream->Disconnect();
 	delete pGame;
 	::CloseHandle(hThread);
 	::CloseHandle(hExect);
