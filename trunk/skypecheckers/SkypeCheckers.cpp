@@ -7,12 +7,7 @@
 SkypeCheckers::SkypeCheckers(void)
 {
 	//Skypeオブジェクトの作成
-	pSkype = ISkypePtr(__uuidof(Skype));
-	pApp = IApplicationPtr(__uuidof(Application));
-	pStream = IApplicationStreamPtr(__uuidof(ApplicationStream));
-	pApp->Create();
-	pApp->
-	pStream->connect();
+//	pSkype = ISkypePtr(__uuidof(Skype));
 
 	//Checkersゲームの作成
 	pGame = new Checkers;
@@ -33,9 +28,7 @@ SkypeCheckers::~SkypeCheckers(void)
 {
 	StopSkypeCheckersThread();
 	WaitForSingleObject(hThread, INFINITE);
-	pSkype = NULL;
-	pApp->Delete();
-	pStream->Disconnect();
+//	pSkype = NULL;
 	delete pGame;
 	::CloseHandle(hThread);
 	::CloseHandle(hExect);
@@ -94,7 +87,7 @@ static unsigned int __stdcall SkypeCheckersThread(void* param)
 				if(psc->attaching == false)
 				{
 					psc->attaching = true;
-					psc->pSkype->Attach(5,VARIANT_FALSE);//blocking
+//					psc->pSkype->Attach(5,VARIANT_FALSE);//blocking
 				}
 				break;
 			case SkypeCheckers::Task::CONNECT://コンタクトに接続
@@ -102,6 +95,7 @@ static unsigned int __stdcall SkypeCheckersThread(void* param)
 					break;
 				if(psc->connecting == false)
 				{
+					//
 					psc->connecting = true;
 					continue;
 				}

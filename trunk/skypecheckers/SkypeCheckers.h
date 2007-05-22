@@ -4,8 +4,6 @@
 #include "checkers.h"
 #include <process.h>
 #include <queue>
-#include <comdef.h>
-#import "Skype4COM.dll" named_guids rename("CreateEvent","CreatePluginEvent"), rename("SendMessage","SendChatMessage")
 
 //¦Vistaã‚Å‚ÍSkype‚ðŠÇ—ŽÒŒ ŒÀ‚Å‹N“®‚·‚é‚±‚ÆII
 
@@ -14,14 +12,9 @@ static char g_appname[] = "skypecheckers1.0beta1";
 const int mesMax = 1024;
 
 using namespace std;
-using namespace SKYPE4COMLib;
 
 class SkypeCheckers
 {
-private:
-	ISkypePtr pSkype;
-	IApplicationPtr pApp;
-	IApplicationStreamPtr pStream;
 public:
 	Checkers* pGame;
 private:
@@ -57,7 +50,7 @@ public:
 	void Attach();
 	void Connect(CString username);
 
-	bool Attached(){return (pSkype->AttachmentStatus == apiAttachAvailable);}
+	bool Attached(){return false;}
 
 	bool SendMove(int xf, int yf, int xt, int yt, bool changeTurn);
 	bool StartGame(bool firstMove = true, bool forceFirst = false);
