@@ -71,7 +71,7 @@ void CMainFrame::OnAttachSkype()
 {
 	// TODO: ここにコマンド ハンドラ コードを追加します。
 	if(pSC)
-		if(pSC->Attached())
+//		if(pSC->Attached())
 			return;
 	pSC = new SkypeCheckers;
 	pSC->Attach();
